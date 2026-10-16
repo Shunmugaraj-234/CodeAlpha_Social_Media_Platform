@@ -167,3 +167,13 @@ Open your browser and navigate to:
 http://localhost:5000
 ```
 
+### Demo Credentials
+You can log in with any of the seeded accounts:
+- **Email:** `alex@pulse.dev` | **Password:** `password123`
+- **Email:** `sarah@pulse.dev` | **Password:** `password123`
+- **Email:** `david@pulse.dev` | **Password:** `password123`
+
+---
+
+## 📜 License
+MIT License. Built for the PULSE Social Community Platform project.
