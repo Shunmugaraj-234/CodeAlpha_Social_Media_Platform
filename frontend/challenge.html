@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community Challenges — PULSE</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/community.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <header class="top-navbar">
+    <div class="brand-logo">
+      <div class="pulse-dot"></div>
+      <a href="home.html" class="gradient-text">PULSE</a>
+    </div>
+
+    <div class="nav-actions">
+      <button id="theme-toggle-btn" class="btn-icon" title="Toggle Theme">☀️</button>
+      <a href="home.html" class="btn btn-secondary btn-sm">Home</a>
+    </div>
+  </header>
+
+  <div style="max-width:1000px; margin:28px auto; padding:0 20px;">
+    <div style="margin-bottom:24px;">
+      <h1 style="font-size:1.8rem; font-weight:800;">Community Challenges 🏆</h1>
+      <p style="color:var(--text-secondary); font-size:0.95rem;">Participate in weekly challenges, share progress, and unlock exclusive achievement badges.</p>
+    </div>
+
+    <div id="challenges-container">
+      <div class="skeleton" style="height:200px;"></div>
+    </div>
+  </div>
+
+  <!-- Mobile Bottom Navigation Bar -->
+  <nav class="mobile-bottom-nav">
+    <a href="home.html" class="mobile-nav-item"><span>🏠</span> Home</a>
+    <a href="search.html" class="mobile-nav-item"><span>🔎</span> Search</a>
+    <a href="home.html#create" class="mobile-nav-item"><span>➕</span> Create</a>
+    <a href="activity.html" class="mobile-nav-item"><span>🔔</span> Activity</a>
+    <a href="profile.html" class="mobile-nav-item"><span>👤</span> Profile</a>
+  </nav>
+
+  <script src="js/api.js"></script>
+  <script src="js/posts.js"></script>
+  <script src="js/challenges.js"></script>
+</body>
+</html>

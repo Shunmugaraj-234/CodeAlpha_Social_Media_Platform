@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile — PULSE</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/profile.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <header class="top-navbar">
+    <div class="brand-logo">
+      <div class="pulse-dot"></div>
+      <a href="home.html" class="gradient-text">PULSE</a>
+    </div>
+
+    <div class="nav-actions">
+      <button id="theme-toggle-btn" class="btn-icon" title="Toggle Theme">☀️</button>
+      <a href="home.html" class="btn btn-secondary btn-sm">Home</a>
+      <a href="#" class="logout-btn btn btn-secondary btn-sm">Logout</a>
+    </div>
+  </header>
+
+  <div style="max-width:1100px; margin:24px auto; padding:0 20px; display:flex; flex-direction:column; gap:24px;">
+    <!-- Profile Main Header Card -->
+    <div class="profile-header-card glass-panel">
+      <img id="profile-cover-img" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&auto=format&fit=crop&q=80" class="profile-cover" />
+      
+      <div class="profile-info-bar">
+        <div class="profile-avatar-wrapper">
+          <img id="profile-avatar-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=80" class="profile-avatar-lg" />
+        </div>
+        <div id="profile-action-btns" style="display:flex; gap:10px;">
+          <!-- Action buttons injected dynamically -->
+        </div>
+      </div>
+
+      <div class="profile-details">
+        <div class="profile-name-row">
+          <h2 id="profile-fullname">Loading...</h2>
+          <span class="pulse-score-badge" id="profile-pulse-score">⚡ 150 Pulse</span>
+        </div>
+        <p id="profile-username" style="font-size:0.9rem; color:var(--text-secondary);">@username</p>
+        <p id="profile-bio" class="profile-bio">Loading bio...</p>
+
+        <div class="profile-stats-row">
+          <div class="stat-box">
+            <span class="stat-value" id="stat-followers">0</span>
+            <span class="stat-label">Followers</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-value" id="stat-following">0</span>
+            <span class="stat-label">Following</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-value" id="stat-posts">0</span>
+            <span class="stat-label">Posts</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-value" id="stat-joined">2026</span>
+            <span class="stat-label">Joined</span>
+          </div>
+        </div>
+
+        <div id="profile-strength-container">
+          <!-- Profile strength bar injected dynamically -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Interest Map Visualizer Card (Requirement 4) -->
+    <div class="interest-map-card glass-panel">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <div>
+          <h3 style="font-size:1.2rem; font-weight:800;">Profile Interest Map 🗺️</h3>
+          <p style="font-size:0.85rem; color:var(--text-secondary);">Visual network of interconnected topics and weighted interests.</p>
+        </div>
+      </div>
+      
+      <div class="interest-map-viewport" id="interest-map-viewport">
+        <!-- Connected interest nodes rendered dynamically -->
+      </div>
+    </div>
+
+    <!-- Two-Column Grid: Badges & Pulse Score Breakdown -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+      <!-- Badges Grid (Requirement 15) -->
+      <div class="glass-panel" style="padding:22px;">
+        <h3 style="font-size:1.1rem; font-weight:800; margin-bottom:12px;">Unlocked Badges 🏆</h3>
+        <div class="badges-grid" id="badges-grid">
+          <div class="skeleton" style="height:80px;"></div>
+        </div>
+      </div>
+
+      <!-- Pulse Score Breakdown (Requirement 16) -->
+      <div class="glass-panel" style="padding:22px;">
+        <h3 style="font-size:1.1rem; font-weight:800; margin-bottom:12px;">Pulse Score Breakdown ⚡</h3>
+        <div class="pulse-breakdown-container" id="pulse-breakdown-container">
+          <div class="skeleton" style="height:20px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Posts Stream -->
+    <div>
+      <h3 style="font-size:1.2rem; font-weight:800; margin-bottom:16px;">Activity Posts</h3>
+      <div id="user-posts-container" style="display:flex; flex-direction:column; gap:20px;">
+        <div class="skeleton" style="height:160px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Profile Modal Dialog -->
+  <div class="modal-backdrop" id="edit-profile-modal">
+    <div class="modal-content">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px;">
+        <h3 style="font-size:1.2rem; font-weight:800;">Edit Profile ✏️</h3>
+        <button onclick="closeEditProfileModal()" style="font-size:1.2rem; color:var(--text-secondary);">✕</button>
+      </div>
+
+      <form id="edit-profile-form" style="display:flex; flex-direction:column; gap:14px;">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="edit-fullname" class="input-field" required />
+        </div>
+        <div class="form-group">
+          <label>Bio</label>
+          <textarea id="edit-bio" class="input-field" rows="3" placeholder="Tell the community about your interests and passion..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Interests (Comma separated)</label>
+          <input type="text" id="edit-interests" class="input-field" placeholder="AI/ML, Programming, Startups" />
+        </div>
+        <div class="form-group">
+          <label>Profile Image URL</label>
+          <input type="url" id="edit-avatar" class="input-field" placeholder="https://..." />
+        </div>
+        <div class="form-group">
+          <label>Cover Image URL</label>
+          <input type="url" id="edit-cover" class="input-field" placeholder="https://..." />
+        </div>
+
+        <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:10px;">
+          <button type="button" class="btn btn-secondary btn-sm" onclick="closeEditProfileModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary btn-sm">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Mobile Bottom Navigation Bar -->
+  <nav class="mobile-bottom-nav">
+    <a href="home.html" class="mobile-nav-item"><span>🏠</span> Home</a>
+    <a href="search.html" class="mobile-nav-item"><span>🔎</span> Search</a>
+    <a href="home.html#create" class="mobile-nav-item"><span>➕</span> Create</a>
+    <a href="activity.html" class="mobile-nav-item"><span>🔔</span> Activity</a>
+    <a href="profile.html" class="mobile-nav-item active"><span>👤</span> Profile</a>
+  </nav>
+
+  <script src="js/api.js"></script>
+  <script src="js/posts.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

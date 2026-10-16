@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join Pulse — Intelligent Community Platform</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body class="auth-page">
+  <div class="auth-container glass-panel" style="max-width:560px;">
+    <div class="auth-header">
+      <div class="brand-logo" style="justify-content:center; margin-bottom:12px;">
+        <div class="pulse-dot"></div>
+        <span class="gradient-text">PULSE</span>
+      </div>
+      <h1>Create Your Account</h1>
+      <p>Join a community focused on meaningful ideas & connections</p>
+    </div>
+
+    <form class="auth-form" id="register-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="reg-fullname">Full Name</label>
+          <input type="text" id="reg-fullname" class="input-field" placeholder="Alex Rivers" required />
+        </div>
+        <div class="form-group">
+          <label for="reg-username">Username</label>
+          <input type="text" id="reg-username" class="input-field" placeholder="alexrivers" required />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="reg-email">Email Address</label>
+        <input type="email" id="reg-email" class="input-field" placeholder="alex@pulse.dev" required />
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="reg-password">Password</label>
+          <input type="password" id="reg-password" class="input-field" placeholder="••••••••" required />
+        </div>
+        <div class="form-group">
+          <label for="reg-confirm-password">Confirm Password</label>
+          <input type="password" id="reg-confirm-password" class="input-field" placeholder="••••••••" required />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Select Your Interests (Used for Smart Feed personalization)</label>
+        <div class="interests-grid" id="interests-grid">
+          <div class="interest-pill" data-value="AI/ML">🤖 AI/ML</div>
+          <div class="interest-pill" data-value="Programming">💻 Programming</div>
+          <div class="interest-pill" data-value="Technology">⚡ Technology</div>
+          <div class="interest-pill" data-value="Web Development">🌐 Web Dev</div>
+          <div class="interest-pill" data-value="Startups">🚀 Startups</div>
+          <div class="interest-pill" data-value="Cybersecurity">🔒 Security</div>
+          <div class="interest-pill" data-value="Gaming">🎮 Gaming</div>
+          <div class="interest-pill" data-value="Music">🎵 Music</div>
+          <div class="interest-pill" data-value="Photography">📸 Photography</div>
+          <div class="interest-pill" data-value="Sports">⚽ Sports</div>
+          <div class="interest-pill" data-value="Travel">✈️ Travel</div>
+          <div class="interest-pill" data-value="Education">📚 Education</div>
+          <div class="interest-pill" data-value="Books">📖 Books</div>
+          <div class="interest-pill" data-value="Fitness">💪 Fitness</div>
+          <div class="interest-pill" data-value="Art">🎨 Art</div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="margin-top:10px; width:100%;">Join Pulse</button>
+    </form>
+
+    <div class="auth-footer">
+      <p>Already have an account? <a href="login.html">Sign In</a></p>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

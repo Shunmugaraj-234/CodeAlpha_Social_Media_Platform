@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interest Communities — PULSE</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/community.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <header class="top-navbar">
+    <div class="brand-logo">
+      <div class="pulse-dot"></div>
+      <a href="home.html" class="gradient-text">PULSE</a>
+    </div>
+
+    <div class="nav-actions">
+      <button id="theme-toggle-btn" class="btn-icon" title="Toggle Theme">☀️</button>
+      <button class="btn btn-primary btn-sm" onclick="openCreateCommunityModal()">+ Create Community</button>
+    </div>
+  </header>
+
+  <div style="max-width:1100px; margin:28px auto; padding:0 20px;">
+    <div id="communities-container">
+      <div class="skeleton" style="height:250px;"></div>
+    </div>
+  </div>
+
+  <!-- Create Community Modal -->
+  <div class="modal-backdrop" id="create-community-modal">
+    <div class="modal-content">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px;">
+        <h3 style="font-size:1.2rem; font-weight:800;">Create Interest Community 🚀</h3>
+        <button onclick="closeCreateCommunityModal()" style="font-size:1.2rem; color:var(--text-secondary);">✕</button>
+      </div>
+
+      <form id="create-community-form" style="display:flex; flex-direction:column; gap:14px;">
+        <div class="form-group">
+          <label>Community Name</label>
+          <input type="text" id="comm-name" class="input-field" placeholder="e.g. Quantum Computing Guild" required />
+        </div>
+        <div class="form-group">
+          <label>Category</label>
+          <select id="comm-category" class="input-field" required>
+            <option value="Technology">Technology</option>
+            <option value="Programming">Programming</option>
+            <option value="Business">Business</option>
+            <option value="Gaming">Gaming</option>
+            <option value="Science">Science</option>
+            <option value="Design">Design</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea id="comm-desc" class="input-field" rows="3" placeholder="Describe what this community is about..." required></textarea>
+        </div>
+        <div class="form-group">
+          <label>Icon Emoji</label>
+          <input type="text" id="comm-icon" class="input-field" placeholder="🤖" />
+        </div>
+
+        <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:10px;">
+          <button type="button" class="btn btn-secondary btn-sm" onclick="closeCreateCommunityModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary btn-sm">Create Community</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Mobile Bottom Navigation Bar -->
+  <nav class="mobile-bottom-nav">
+    <a href="home.html" class="mobile-nav-item"><span>🏠</span> Home</a>
+    <a href="search.html" class="mobile-nav-item"><span>🔎</span> Search</a>
+    <a href="home.html#create" class="mobile-nav-item"><span>➕</span> Create</a>
+    <a href="activity.html" class="mobile-nav-item"><span>🔔</span> Activity</a>
+    <a href="profile.html" class="mobile-nav-item"><span>👤</span> Profile</a>
+  </nav>
+
+  <script src="js/api.js"></script>
+  <script src="js/posts.js"></script>
+  <script src="js/community.js"></script>
+</body>
+</html>
